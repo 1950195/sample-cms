@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <base href="/">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="fragment" content="!">
+  <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
+  {% for cssFile in cssFiles %}
+  <link rel="stylesheet" href="{{cssFile}}">
+  {% endfor %}
+</head>
+
+<body>
+  <header class="navbar navbar-fixed-top navbar-default"></header>
+  <section class="content">
+    <section class="container">
+    </section>
+  </section>
+
+  {% for jsFile in jsFiles %}
+  <script type="text/javascript" src="{{jsFile}}"></script>
+  {% endfor %}
+
+  {% if livereload %}
+  <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
+  {% endif %}
+</body>
+
+</html>
