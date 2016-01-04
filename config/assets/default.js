@@ -4,7 +4,9 @@ module.exports = {
     client: {
         lib: {
             css: [],
-            js: []
+            js: [
+                'public/js/app.js'
+            ]
         },
         css: [
             'modules/*/client/css/*.css'
@@ -14,12 +16,13 @@ module.exports = {
         ],
         js: [
             'modules/core/client/app/config.js',
-            'modules/core/client/app/init.js',
-            'modules/*/client/*.js',
-            'modules/*/client/**/*.js'
+            'modules/core/client/app/init.js'
         ],
-        views: [
-            'modules/*/client/views/**/*.html'
+        apps: [
+            'modules/*/client/*.client.module.js'
+        ],
+        components: [
+            'modules/*/client/components/**/*.vue'
         ]
     },
     server: {
