@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a href="#" class="navbar-brand">{{title}}</a>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false">
+            <div class="navbar-container" aria-expanded="false">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="#" class="menu-item">Link</a>
@@ -21,6 +21,10 @@
                             <li><a role="menuitem" class="sub menu-item" href="#">One more separated link</a></li>
                         </ul>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="menu-item">Sign In</a></li>
+                    <li><a href="#" class="menu-item">Sign Up</a></li>
                 </ul>
             </div>
         </div>
