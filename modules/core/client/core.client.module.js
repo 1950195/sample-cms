@@ -1,9 +1,8 @@
-import Vue from 'vue';
-import welcome from './components/welcome.vue';
+import Top from './components/top.vue';
 
 new Vue ({
     el: 'body',
     components: {
-        welcome
+        Top
     }
 });

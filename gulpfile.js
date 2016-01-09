@@ -66,8 +66,8 @@ gulp.task('watch', function() {
     gulp.watch(assets.server.allJS).on('change', $.livereload.changed);
     gulp.watch(assets.client.js).on('change', $.livereload.changed);
     gulp.watch(assets.client.css).on('change', $.livereload.changed);
-    gulp.watch(assets.client.sass, ['sass']).on('change', $.livereload.changed);
-    gulp.watch(assets.client.views).on('change', $.livereload.changed);
+    gulp.watch(assets.client.apps).on('change', $.livereload.changed);
+    gulp.watch(assets.client.components).on('change', $.livereload.changed);
 });
 
 gulp.task('default', function(done) {
