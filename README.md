@@ -9,7 +9,7 @@ $ gulp
 ```
 
 # 目录结构
-![Project](public/images/project.jpg)
+![Project](public/images/Project.jpg)
 
 # 开发进度
 ![Development](public/images/Development.jpg)
