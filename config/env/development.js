@@ -30,5 +30,6 @@ module.exports = {
         }
     },
     livereload: true,
+    livereloadPort: 35729,
     seedDB: process.env.MONGO_SEED || false
 };

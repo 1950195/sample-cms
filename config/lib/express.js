@@ -28,6 +28,7 @@ module.exports.initLocalVariables = function(app) {
     app.locals.jsFiles = config.files.client.js;
     app.locals.cssFiles = config.files.client.css;
     app.locals.livereload = config.livereload;
+    app.locals.livereloadPort = config.livereloadPort;
     app.locals.logo = config.logo;
     app.locals.favicon = config.favicon;
 

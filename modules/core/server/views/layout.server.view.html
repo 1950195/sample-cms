@@ -20,7 +20,7 @@
         <script type="text/javascript" src="{{jsFile}}"></script>
         {% endfor %}
         {% if livereload %}
-        <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
+        <script type="text/javascript" src="{{host}}:{{livereloadPort}}/livereload.js"></script>
         {% endif %}
     </body>
 </html>

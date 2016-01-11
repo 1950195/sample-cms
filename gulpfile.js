@@ -1,5 +1,6 @@
 'use strict';
 
+const env = require('./config/env/default');
 const assets = require('./config/assets/default');
 const gulp = require('gulp');
 const _ = require('lodash');
@@ -36,8 +37,9 @@ const webpackConfig = {
 };
 
 gulp.task('env:dev', function() {
-    _.merge(assets, require('./config/assets/development'));
     process.env.NODE_ENV = 'development';
+    _.merge(env, require('./config/env/development'));
+    _.merge(assets, require('./config/assets/development'));
 });
 
 gulp.task('nodemon', function() {
@@ -61,7 +63,7 @@ gulp.task('vue', function() {
 });
 
 gulp.task('watch', function() {
-    $.livereload.listen();
+    $.livereload.listen({port: env.livereloadPort});
     gulp.watch(assets.server.views).on('change', $.livereload.changed);
     gulp.watch(assets.server.allJS).on('change', $.livereload.changed);
     gulp.watch(assets.client.js).on('change', $.livereload.changed);
