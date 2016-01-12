@@ -9,6 +9,7 @@ module.exports = {
             ],
             js: [
                 'public/lib/vue/dist/vue.min.js',
+                'public/lib/vue-router/dist/vue-router.min.js',
                 'public/lib/jquery/dist/jquery.min.js',
                 'public/lib/bootstrap/dist/js/bootstrap.min.js',
                 'public/js/app.js'
