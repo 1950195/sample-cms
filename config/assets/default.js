@@ -4,23 +4,15 @@ module.exports = {
     client: {
         lib: {
             css: [
-                'public/lib/bootstrap/dist/css/bootstrap.min.css',
-                'public/lib/bootstrap/dist/css/bootstrap-theme.min.css'
+                'public/css/reset.css'
             ],
             js: [
                 'public/lib/vue/dist/vue.min.js',
-                'public/lib/vue-router/dist/vue-router.min.js',
-                'public/lib/jquery/dist/jquery.min.js',
-                'public/lib/bootstrap/dist/js/bootstrap.min.js',
-                'public/js/app.js'
+                'public/lib/vue-router/dist/vue-router.min.js'
             ]
         },
-        css: [
-            'modules/*/client/css/*.css'
-        ],
         js: [
-            'modules/core/client/app/config.js',
-            'modules/core/client/app/init.js'
+            'public/js/app.js'
         ],
         apps: [
             'modules/*/client/*.client.module.js'

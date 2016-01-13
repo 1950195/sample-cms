@@ -3,7 +3,6 @@
 const env = require('./config/env/default');
 const assets = require('./config/assets/default');
 const gulp = require('gulp');
-const del = require('del');
 const _ = require('lodash');
 const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
@@ -27,6 +26,15 @@ const webpackConfig = {
             }
         ]
     },
+    vue: {
+        autoprefixer: {
+            browsers: ['last 2 versions']
+        },
+        loaders: {
+            sass: 'style!css!sass?indentedSyntax',
+            scss: 'style!css!sass'
+        }
+    },
     devtool: 'source-map',
     babel: {
         presets: ['es2015'],
@@ -43,13 +51,6 @@ gulp.task('env:dev', function() {
     _.merge(assets, require('./config/assets/development'));
 });
 
-gulp.task('clean', function(cb) {
-    del(['./public/js/*.js', './public/js/*.map']).then(paths => {
-        console.log('Deleted files and folders:\n', paths.join('\n'));
-        cb();
-    });
-});
-
 gulp.task('nodemon', function() {
     return $.nodemon({
         script: 'server.js',
@@ -63,7 +64,7 @@ gulp.task('nodemon', function() {
     });
 });
 
-gulp.task('vue', ['clean'], function() {
+gulp.task('vue', function() {
     return gulp.src(assets.client.apps)
         .pipe($.webpack(webpackConfig))
         .pipe(gulp.dest('public/js/'))
@@ -81,5 +82,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', function(done) {
-    runSequence('env:dev', ['nodemon', 'vue', 'watch'], done);
+    runSequence('env:dev', ['vue', 'nodemon', 'watch'], done);
 });

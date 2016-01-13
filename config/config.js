@@ -63,8 +63,8 @@ const initGlobalConfigFiles = function(config, assets) {
             configs: getGlobbedPaths(assets.server.config)
         },
         client: {
-            js: getGlobbedPaths(assets.client.lib.js, 'public/').concat(getGlobbedPaths(assets.client.js, ['public/'])),
-            css: getGlobbedPaths(assets.client.lib.css, 'public/').concat(getGlobbedPaths(assets.client.css, ['public/']))
+            js: getGlobbedPaths(assets.client.lib.js, 'public/').concat(getGlobbedPaths(assets.client.js, 'public/')),
+            css: getGlobbedPaths(assets.client.lib.css, 'public/').concat(getGlobbedPaths(assets.client.css, 'public/'))
         }
     };
 };
