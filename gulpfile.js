@@ -3,6 +3,7 @@
 const env = require('./config/env/default');
 const assets = require('./config/assets/default');
 const gulp = require('gulp');
+const del = require('del');
 const _ = require('lodash');
 const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
@@ -42,6 +43,13 @@ gulp.task('env:dev', function() {
     _.merge(assets, require('./config/assets/development'));
 });
 
+gulp.task('clean', function(cb) {
+    del(['./public/js/*.js', './public/js/*.map']).then(paths => {
+        console.log('Deleted files and folders:\n', paths.join('\n'));
+        cb();
+    });
+});
+
 gulp.task('nodemon', function() {
     return $.nodemon({
         script: 'server.js',
@@ -55,7 +63,7 @@ gulp.task('nodemon', function() {
     });
 });
 
-gulp.task('vue', function() {
+gulp.task('vue', ['clean'], function() {
     return gulp.src(assets.client.apps)
         .pipe($.webpack(webpackConfig))
         .pipe(gulp.dest('public/js/'))
