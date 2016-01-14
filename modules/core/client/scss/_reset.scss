@@ -1,12 +1,20 @@
+* {
+    box-sizing: border-box;
+    &:before, &:after {
+        box-sizing: border-box;
+    }
+}
+
 body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
 }
 
-button,input,select,textarea {
+button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -15,17 +23,18 @@ button,input,select,textarea {
 a {
     color: #337ab7;
     text-decoration: none;
-}
 
-a:focus,a:hover {
-    color: #23527c;
-    text-decoration: underline;
-}
+    &:focus, &:hover {
+        outline: 0;
+        color: #23527c;
+        text-decoration: underline;
+    }
 
-a:focus {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
+    &:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
 }
 
 figure {
