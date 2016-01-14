@@ -27,6 +27,7 @@
     "express-session": "^1.12.1",
     "generate-password": "^1.1.1",
     "helmet": "^1.0.1",
+    "lodash": "^4.0.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.4",
     "morgan": "^1.6.1",
@@ -54,7 +55,6 @@
     "gulp-nodemon": "^2.0.6",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-webpack": "^1.5.0",
     "kerberos": "0.0.17",
     "run-sequence": "^1.1.5",
     "sass-loader": "^3.1.2",
@@ -62,8 +62,7 @@
     "vue-hot-reload-api": "^1.2.2",
     "vue-html-loader": "^1.1.0",
     "vue-loader": "^7.5.1",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-stream": "^3.1.0"
   },
   "engines": {
     "node": ">=5.0.0"

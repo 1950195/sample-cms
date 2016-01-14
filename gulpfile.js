@@ -6,6 +6,7 @@ const gulp = require('gulp');
 const _ = require('lodash');
 const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
+const webpack = require('webpack-stream');
 const webpackConfig = {
     output: {
         path: "/public/js",
@@ -66,7 +67,7 @@ gulp.task('nodemon', function() {
 
 gulp.task('vue', function() {
     return gulp.src(assets.client.apps)
-        .pipe($.webpack(webpackConfig))
+        .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('./public/js/'))
         .pipe($.connect.reload());
 });
