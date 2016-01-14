@@ -1,25 +1,26 @@
-@import '_reset';
-@import '_nav';
+// Core variables and mixins
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
+// Reset and dependencies
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
+// Core CSS
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+
+// Utility classes
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
