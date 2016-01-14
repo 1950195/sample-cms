@@ -67,8 +67,18 @@ gulp.task('nodemon', function() {
 gulp.task('vue', function() {
     return gulp.src(assets.client.apps)
         .pipe($.webpack(webpackConfig))
-        .pipe(gulp.dest('public/js/'))
+        .pipe(gulp.dest('./public/js/'))
         .pipe($.connect.reload());
+});
+
+gulp.task('sass', function () {
+    gulp.src(assets.client.scss)
+        .pipe($.sourcemaps.init())
+        .pipe($.sass.sync({outputStyle: 'compact'}).on('error', $.sass.logError))
+        .pipe($.autoprefixer('last 2 version'))
+        .pipe($.concat('app.css'))
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('watch', function() {
@@ -79,8 +89,9 @@ gulp.task('watch', function() {
     gulp.watch(assets.client.css).on('change', $.livereload.changed);
     gulp.watch(assets.client.apps).on('change', $.livereload.changed);
     gulp.watch(assets.client.components).on('change', $.livereload.changed);
+    gulp.watch(assets.client.scss, ['sass']);
 });
 
 gulp.task('default', function(done) {
-    runSequence('env:dev', ['vue', 'nodemon', 'watch'], done);
+    runSequence('env:dev', ['sass', 'vue', 'nodemon', 'watch'], done);
 });

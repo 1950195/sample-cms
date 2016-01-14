@@ -3,16 +3,19 @@
 module.exports = {
     client: {
         lib: {
-            css: [
-                'public/css/reset.css'
-            ],
             js: [
                 'public/lib/vue/dist/vue.min.js',
                 'public/lib/vue-router/dist/vue-router.min.js'
             ]
         },
+        css: [
+            'public/css/*.css'
+        ],
         js: [
             'public/js/app.js'
+        ],
+        scss: [
+            'modules/*/client/scss/*.*scss'
         ],
         apps: [
             'modules/*/client/*.client.module.js'

@@ -2,6 +2,10 @@
 # ===========
 public/js/
 
+# Compass
+# ===========
+public/css/
+
 # OS
 # ===========
 .DS_Store
