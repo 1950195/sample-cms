@@ -5,7 +5,8 @@ module.exports = {
         lib: {
             js: [
                 'public/lib/vue/dist/vue.min.js',
-                'public/lib/vue-router/dist/vue-router.min.js'
+                'public/lib/vue-router/dist/vue-router.min.js',
+                'public/lib/vue-resource/dist/vue-resource.min.js'
             ]
         },
         css: [

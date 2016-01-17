@@ -72,7 +72,7 @@ gulp.task('vue', function() {
         .pipe($.connect.reload());
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     gulp.src(assets.client.scss)
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync({outputStyle: 'compact'}).on('error', $.sass.logError))
