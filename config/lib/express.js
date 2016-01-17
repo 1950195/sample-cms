@@ -50,7 +50,7 @@ module.exports.initMiddleware = function(app) {
         level: 9
     }));
 
-    app.use(favicon(config.favicon));
+    app.use(favicon(path.join(config.staticPath, config.favicon)));
 
     if (process.env.NODE_ENV === 'development') {
         app.use(morgan('dev'));
@@ -111,10 +111,7 @@ module.exports.initHelmetHeaders = function(app) {
 };
 
 module.exports.initModulesClientRoutes = function(app) {
-    app.use('/', express.static(path.resolve('./public')));
-    config.folders.client.forEach(function(staticPath) {
-        app.use(staticPath, express.static(path.resolve('./' + staticPath)));
-    });
+    app.use('/', express.static(path.resolve(config.staticPath)));
 };
 
 module.exports.initModulesServerRoutes = function(app) {

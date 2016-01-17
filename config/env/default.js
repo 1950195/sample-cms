@@ -16,6 +16,7 @@ module.exports = {
     sessionSecret: 'MEAN',
     sessionKey: 'sessionId',
     sessionCollection: 'sessions',
-    logo: 'public/images/logo.png',
-    favicon: 'public/images/favicon.ico'
+    staticPath: './public',
+    logo: 'images/logo.png',
+    favicon: 'images/favicon.ico'
 };
