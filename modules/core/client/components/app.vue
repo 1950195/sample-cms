@@ -1,7 +1,9 @@
 <template>
     <top></top>
     <section class="content">
-        <router-view class="view" keep-alive></router-view>
+        <section class="container">
+            <router-view class="view"></router-view>
+        </section>
     </section>
 </template>
 
