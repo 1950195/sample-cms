@@ -27,6 +27,7 @@ coverage/
 # General
 # =======
 *.log
+*.log.*
 *.csv
 *.dat
 *.out

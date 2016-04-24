@@ -13,10 +13,10 @@ module.exports = {
             'public/css/*.css'
         ],
         js: [
-            'public/js/app.js'
+            'public/js/core.js'
         ],
         scss: [
-            'modules/*/client/scss/*.*scss'
+            'modules/*/client/scss/*.scss'
         ],
         apps: [
             'modules/*/client/*.client.module.js'

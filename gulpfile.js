@@ -3,48 +3,12 @@
 const env = require('./config/env/default');
 const assets = require('./config/assets/default');
 const gulp = require('gulp');
+const del = require('del');
 const _ = require('lodash');
 const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
 const webpack = require('webpack-stream');
-const webpackConfig = {
-    output: {
-        path: "/public/js",
-        publicPath: "/public/",
-        filename: "app.js"
-    },
-    watch: true,
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules|vue\/src|vue-router\//,
-                loader: 'babel'
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue'
-            }
-        ]
-    },
-    vue: {
-        autoprefixer: {
-            browsers: ['last 2 versions']
-        },
-        loaders: {
-            sass: 'style!css!sass?indentedSyntax',
-            scss: 'style!css!sass'
-        }
-    },
-    devtool: 'source-map',
-    babel: {
-        presets: ['es2015'],
-        plugins: ['transform-runtime']
-    },
-    resolve: {
-        modulesDirectories: ['node_modules']
-    }
-};
+const webpackConfig = require('./webpack.config');
 
 gulp.task('env:dev', function() {
     process.env.NODE_ENV = 'development';
@@ -65,6 +29,12 @@ gulp.task('nodemon', function() {
     });
 });
 
+gulp.task('clean', function() {
+    del(['./public/js/*']).then(paths => {
+        console.log('Deleted files and folders:\n', paths.join('\n'));
+    });
+});
+
 gulp.task('vue', function() {
     return gulp.src(assets.client.apps)
         .pipe(webpack(webpackConfig))
@@ -73,7 +43,7 @@ gulp.task('vue', function() {
 });
 
 gulp.task('sass', function() {
-    gulp.src(assets.client.scss)
+    return gulp.src(assets.client.scss)
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync({outputStyle: 'compact'}).on('error', $.sass.logError))
         .pipe($.autoprefixer('last 2 version'))
@@ -88,8 +58,6 @@ gulp.task('watch', function() {
     gulp.watch(assets.server.allJS).on('change', $.livereload.changed);
     gulp.watch(assets.client.js).on('change', $.livereload.changed);
     gulp.watch(assets.client.css).on('change', $.livereload.changed);
-    gulp.watch(assets.client.apps).on('change', $.livereload.changed);
-    gulp.watch(assets.client.components).on('change', $.livereload.changed);
     gulp.watch(assets.client.scss, ['sass']);
 });
 
